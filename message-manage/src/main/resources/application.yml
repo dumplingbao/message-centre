@@ -1,0 +1,10 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: message-basic
+  data:
+    mongodb:
+      database: message_centre
+      host: 127.0.0.1
+      port: 27017
