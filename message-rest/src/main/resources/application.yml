@@ -1,1 +1,13 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: message-basic
+  data:
+    mongodb:
+      database: message_centre
+      host: 127.0.0.1
+      port: 27017
+kafka:
+  bootstrap-servers: localhost:9092
 
