@@ -1,6 +1,7 @@
 package com.dumplingbao.message.kafka.consumer;
 
 import com.alibaba.fastjson.JSON;
+import com.dumplingbao.message.core.KafkaGroup;
 import com.dumplingbao.message.core.KafkaTopic;
 import com.dumplingbao.message.domain.Message;
 import lombok.extern.slf4j.Slf4j;
@@ -18,8 +19,8 @@ import java.util.Optional;
 @Slf4j
 public class KafkaConsumer {
 
-    @KafkaListener(topics = {KafkaTopic.TOPIC1})
-    public void messageListene (ConsumerRecord<?, ?> consumerRecord) {
+    @KafkaListener(topics = {KafkaTopic.TOPIC1}, groupId = KafkaGroup.GROUP1)
+    public void messageListener (ConsumerRecord<?, ?> consumerRecord) {
         Optional<?> kafkaMessage = Optional.ofNullable(consumerRecord.value());
         if (kafkaMessage.isPresent()) {
             String mamMessageStr = (String)kafkaMessage.get();

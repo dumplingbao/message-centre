@@ -9,4 +9,5 @@ public class KafkaTopic {
     public static final String TOPIC1 = "TOPIC1";
     public static final String TOPIC2 = "TOPIC2";
     public static final String TOPIC3 = "TOPIC3";
+
 }
