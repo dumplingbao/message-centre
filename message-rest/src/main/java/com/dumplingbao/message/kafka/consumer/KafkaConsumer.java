@@ -28,4 +28,14 @@ public class KafkaConsumer {
             log.info("partition: {}, thread: {}, emailMessage: {}", consumerRecord.partition(), Thread.currentThread().getName(), mamMessageStr);
         }
     }
+
+    @KafkaListener(topics = {KafkaTopic.TOPIC1}, groupId = KafkaGroup.GROUP2)
+    public void messageListenerTest (ConsumerRecord<?, ?> consumerRecord) {
+        Optional<?> kafkaMessage = Optional.ofNullable(consumerRecord.value());
+        if (kafkaMessage.isPresent()) {
+            String mamMessageStr = (String)kafkaMessage.get();
+            Message message = JSON.parseObject(mamMessageStr, Message.class);
+            log.info("partition: {}, thread: {}, emailMessage: {}", consumerRecord.partition(), Thread.currentThread().getName(), mamMessageStr);
+        }
+    }
 }
